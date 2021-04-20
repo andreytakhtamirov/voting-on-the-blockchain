@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SecureVote</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-primary" style="background-color: #1d6661 !important; z-index: 1;">
+    <a class="navbar-brand" href="./">SecureVote</a>
+</nav>
+
+<br>
+
+<div class="card mx-auto" style="max-width: 600px; margin-top: 50px;">
+    <div class="card-header">
+        Voting???
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">This is your voice in society!</h4>
+        <p class="card-text">
+            Choose from any of the four candidates, based on their policies coinciding
+            with your beliefs. By voting you promote the continuation of democracy. To ensure
+            your safety and anonymity, your cast vote will be linked to a unique anonymous
+            identifier.
+        </p>
+    </div>
+</div>
+
+<br>
+
+<div class="card mx-auto" style="max-width: 600px; margin-top: 10px;">
+    <div class="card-header" style="font-size: 30px">
+        Select Your Candidate
+    </div>
+    <form class="mx-auto" style="padding: 10px;" action="/castVote" method="post">
+        <div class="container" data-toggle="buttons">
+            <div class="column">
+                <div class="row btn-group-toggle">
+                    <label id="candidate1" class="btn btn-secondary active"
+                           style="padding: 110px; background-color:#ca4444;">
+                        <input type="radio" name="candidate" id="red" required value="candidate_red" autocomplete="off">
+                    </label>
+                    <label class="btn btn-secondary" style="padding: 110px; background-color:#4b71d6;">
+                        <input type="radio" name="candidate" id="blue" value="candidate_blue" autocomplete="off">
+                    </label>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="column">
+                <div class="row btn-group-toggle">
+                    <label class="btn btn-secondary" style="padding: 110px; background-color:#1d8c48;">
+                        <input type="radio" name="candidate" id="green" value="candidate_green" aria-valuetext="hello"
+                               autocomplete="off">
+                    </label>
+                    <label class="btn btn-secondary" style="padding: 110px; background-color:#a96df1;">
+                        <input type="radio" name="candidate" id="purple" value="candidate_purple" autocomplete="off">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 10px;">
+            <button type="submit" class="btn btn-primary mx-1" onclick="submitClicked()"
+                    style="background-color: #8b7dc8 !important; border-color: #8b7dc8;">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

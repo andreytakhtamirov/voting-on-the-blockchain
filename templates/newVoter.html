@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Citizen</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-primary" style="background-color: #1d6661 !important; z-index: 1;">
+    <a class="navbar-brand" href="./">SecureVote</a>
+    <a class="btn btn-primary" href="./" style="background-color: #1d6661 !important; border-color: #1d6661;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-door"
+             viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+        </svg>
+    </a>
+</nav>
+
+<br>
+
+<div class="card mx-auto" style="max-width: 600px; margin-top: 50px;">
+    <div class="card-header" style="font-size: 30px">
+        Voter Registration
+    </div>
+    <div class="progress" style="margin: 10px;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0"
+             aria-valuemin="0" aria-valuemax="100"
+             style="width: 1%; background-color: #a190e7 !important;">
+        </div>
+    </div>
+
+    <div class="navbar mx-auto">
+        <div class="navbar-inner">
+            <ul class="nav nav-pills">
+                <li>
+                    <a class="btn btn-secondary mx-1 active" id="pane1Btn" href="#pane1" data-toggle="tab"
+                       data-step="1" onclick="updateProgressBar(1)">
+                        1
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-secondary mx-1" id="pane2Btn" href="#pane2" data-toggle="tab" data-step="2"
+                       onclick="updateProgressBar(33)">
+                        2
+                    </a>
+                </li>
+                <li>
+                    <a class=" btn btn-secondary mx-1" id="pane3Btn" href="#pane3" data-toggle="tab" data-step="3"
+                       onclick="updateProgressBar(66)">
+                        3
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <form action="/addVoter" method="post">
+        <fieldset style="margin: 10px;">
+            <div class="tab-content">
+                <div class="tab-pane fade-in active" id="pane1">
+                    <div class="form-group w-50" style="margin-left: 4px;">
+                        <label style="margin-left: 4px;" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required class="form-control"
+                               placeholder="Full Name">
+                    </div>
+                    <div class="form-group" style="margin-left: 4px;">
+                        <label style="margin-left: 4px;" for="dateOfBirth">Date of Birth</label>
+                        <br>
+                        <input type="date" id="dateOfBirth" required name="dateOfBirth" width="300"
+                               style="border: 1px solid #dddddd; border-radius: 4px; padding: 6px;"/>
+                    </div>
+                    <div class="nav nav-pills">
+                        <li>
+                            <a class="btn btn-primary mx-1" id="goToPane2Btn" id="pane1NextBtn" href="#pane2"
+                               onclick="goToPane2Clicked()"
+                               data-toggle="tab" data-step="2"
+                               style="background-color: #8b7dc8 !important; border-color: #8b7dc8;">
+                                Next
+                            </a>
+                        </li>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pane2">
+                    <div class="form-group w-50" style="margin-left: 4px;">
+                        <label style="margin-left: 4px;" for="address">Address</label>
+                        <input class="form-control" type="text" id="address" required name="address"
+                               placeholder="Your Address">
+                    </div>
+                    <div class="form-group" style="margin-left: 4px;">
+                        <label style="margin-left: 4px;" for="phoneNumber">Phone Number</label>
+                        <br>
+                        <input type="number" width="300" id="phoneNumber" required name="phoneNumber" s
+                               placeholder="+1 519 000 0000"
+                               style="border: 1px solid #8b7dc8; border-radius: 4px; padding: 6px;"/>
+                    </div>
+                    <div class="nav nav-pills">
+                        <li>
+                            <a class="btn btn-primary mx-1" href="#pane3" id="pane2NextBtn" onclick="goToPane3Clicked()"
+                               data-toggle="tab"
+                               data-step="2"
+                               style="background-color: #8b7dc8 !important; border-color: #8b7dc8;">
+                                Next
+                            </a>
+                        </li>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pane3">
+                    <div class="form-group w-50" style="margin-left: 4px;">
+                        <label style="margin-left: 4px;" for="idNumber">Identification Number</label>
+                        <input class="form-control" type="text" id="idNumber" required name="idNumber"
+                               placeholder="XXXX-XXXX-XXXX-XXXX">
+                    </div>
+                    <div class="nav nav-pills">
+                        <li>
+                            <button type="submit" class="btn btn-primary mx-1" href="#pane1" onclick="submitClicked()"
+                                    style="background-color: #8b7dc8 !important; border-color: #8b7dc8;">
+                                Submit
+                            </button>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+
+    function goToPane2Clicked() {
+        $("#pane1Btn").removeClass("active");
+        $("#pane2Btn").addClass("active");
+
+        updateProgressBar(33);
+    }
+
+    function goToPane3Clicked() {
+        $("#pane2Btn").removeClass("active");
+        $("#pane3Btn").addClass("active");
+
+        updateProgressBar(67);
+    }
+
+    function submitClicked() {
+        $("#pane3Btn").removeClass("active");
+        $("#pane1Btn").addClass("active");
+
+        updateProgressBar(100);
+    }
+
+    function updateProgressBar(percent) {
+        $('.progress-bar').css({width: percent + '%'});
+    }
+</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
