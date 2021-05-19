@@ -20,8 +20,6 @@ You may be prompted to install some modules, in that case run
 
 Now SecureVote is ready to be used. Navigate to the address and port which it is being run on.
 
-it's http://127.0.0.1:5000/ for me
-
 
 ## Use
 If we navigate to /voters, we’ll see everyone that’s registered and is able to vote. By default, this is populated with a single person. We also see the percentage of registered voters which have voted below.
